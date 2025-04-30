@@ -26,6 +26,7 @@ body {
   object-fit: contain;
 }
 
+
 /* Top bar for mobile only */
 .top-bar {
   display: none;
@@ -147,5 +148,20 @@ p {
 @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
   .mobile-header {
     height: 350px;
+  }
+}
+
+.cat-icon-desktop {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 37px;
+  height: 55px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .cat-icon-desktop {
+    display: none;
   }
 }
