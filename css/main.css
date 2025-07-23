@@ -1,9 +1,17 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+body.homepage {
   display: flex;
   height: 100vh;
 }
+
+strong {
+  font-weight: 600;
+}
+
 
 .left {
   flex: 1;
@@ -36,6 +44,8 @@ body {
 }
 
 .top-links a {
+  font-family: 'Inter', sans-serif;
+
   font-size: 0.9em;
   color: #666;
   text-decoration: none;
@@ -163,5 +173,125 @@ p {
 @media (max-width: 900px) and (orientation: portrait) {
   .cat-icon-desktop {
     display: none;
+  }
+}
+
+
+/********* no-code *************/
+
+
+
+.container.project-page {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.project-page h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.project-page h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35em;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.project-page img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.project-page ul {
+  margin: 10px 0 20px;
+  padding-left: 20px;
+}
+
+.project-page a {
+  font-family: 'Fraunces', serif;
+  color: black;
+  white-space: nowrap;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+a.linkFooter {
+  color: #666;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 400;
+} 
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 2em;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.top-cat {
+  width: 37px;
+  height: 55px;
+  object-fit: contain;
+}
+
+
+
+
+/* Footer nav links */
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+
+
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .top-right {
+    margin-top: 10px;
+    justify-content: flex-start;
   }
 }
