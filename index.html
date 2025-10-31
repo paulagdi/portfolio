@@ -1,51 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Paula Guagliardi - UX Designer</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@300;600&display=swap" rel="stylesheet">
-  <!-- External CSS -->
-  <link rel="stylesheet" href="/css/main.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paula Guagliardi – Design + Product</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+
 </head>
-<body class="homepage">
-
-<!-- Top bar for mobile portrait -->
-<div class="top-bar">
-  <img src="/images/karate.jpg" alt="Cat Icon" class="cat-icon" width="37" height="55" />
-  <div class="top-links">
-    <a href="mailto:paula.gdi@gmail.com">Contact</a> • 
-    <a href="https://www.linkedin.com/in/paulaguagliardi/" target="_blank" rel="noopener">LinkedIn</a>  •
-    <a href="/blog/no-code/plant-care-tracker-intro/">No Code Projects</a>
-  </div>
-</div>
-
-  <!-- Header image for mobile portrait -->
-  <header class="mobile-header"></header>
-
-  <!-- Left panel (desktop only) -->
-  <div class="left"></div>
-
-  <div class="right">
-      <!-- Desktop-only cat icon -->
-    <img src="/images/karate.jpg" alt="Cat Icon" class="cat-icon-desktop" width="37" height="55" />
-    <div class="content">
-      <h1>Hi, I am Paula Guagliardi!</h1>
-      <p>I’m a Lead Product Designer with over a decade of experience creating user-centered design solutions. My focus is on UX, interaction design, and aligning design initiatives with business and product goals.</p>
-      <a href="https://drive.google.com/file/d/1mkOgHAQceuzgIx0trT-ZAXG5CWXiXft3/view?usp=sharing" class="button" target="_blank" rel="noopener">
-        Request UX portfolio →
-      </a>
+<body class="textured-bg">
+  <header>
+    <div class="nav">
+      <div class="brand">Paula Guagliardi <em>Design + Product</em></div>
+      <nav class="nav-ctas" aria-label="Primary">
+        <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg" alt="Email" height="19"></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Footer links only for desktop -->
-    <div class="footer">
-      <a href="mailto:paula.gdi@gmail.com">Contact</a> 
-      <a>•</a>  
-      <a href="https://www.linkedin.com/in/paulaguagliardi/" target="_blank" rel="noopener">LinkedIn</a>
-      <a>•</a>
-      <a href="/blog/no-code/plant-care-tracker-intro/">No-code projects</a>
+  <main>
+    <section class="wrap hero" id="home">
+      <span class="emoji"><img src="/images/karate.png" alt="Karate" width="56" /></span>
+      <h1>Product designer and builder at heart who loves turning complex systems into clear, human experiences.</h1>
+      <p>Hi! I'm Paula, a Product Designer based in Berlin with 10+ years of experience, <strong>the last 6 dedicated to complex B2B SaaS products in Vision AI and HealthTech</strong>. I love working end-to-end, from research and strategy to testing and implementation, driving measurable results and shaping product direction.</p>
+      <div class="divider">↓</div>
+    </section>
+
+    <section class="wrap" id="work">
+      <h2 class="section-title">Case studies</h2>
+      <div class="cases">
+        <article class="case" tabindex="0">
+          <div class="copy">
+            <h3>Onboarding Design for product-market fit discovery</h3>
+            <p>Hasty is a Vision AI platform that minimizes manual labeling with AI assistants that learn as you label. This project focused on showcasing that value through interactive in-product demos.</p>
+            <div class="chips">
+              <span class="chip">Concept Design</span>
+              <span class="chip">UX/UI design</span>
+              <span class="chip">UX writing</span>
+              <span class="chip">Desk research</span>
+              <span class="chip">Usability Testing</span>
+            </div>
+            <a href="https://www.figma.com/slides/v49xU0N1rjDIRgPSbz5wXR/Onboarding-Design-for-product-market-fit-discovery?node-id=33-35&t=5Okgm0bSk13Qf7YH-1" target="_blank" class="cta">View case study →</a>
+          </div>
+          <div class="media">
+            <div class="screenshot">
+              <img src="/images/onboarding.jpg" alt="Onboarding Demo Projects" />
+            </div>
+          </div>
+        </article>
+
+        <article class="case" tabindex="0">
+          <div class="copy">
+            <h3>Keypoints: Interaction design for Vision AI labeling efficiency</h3>
+            <p>Hasty is an end-to-end Vision AI platform that streamlines data annotation. This project built the Keypoints feature, enabling users to mark specific image points for pose detection and related tasks.</p>
+            <div class="chips">
+              <span class="chip">Concept Design</span>
+              <span class="chip">UX/UI design</span>
+              <span class="chip">User interviews</span>
+              <span class="chip">Desk research</span>
+              <span class="chip">Complex user journeys</span>
+              <!-- <span class="chip">Cross‑functional collaboration</span> -->
+            </div>
+            <a href="https://www.figma.com/slides/LbdPfLPnoIOkk4xz0Cnb2o/Keypoints--%E2%80%A8Interaction-design-for-%E2%80%A8Vision-AI-labeling-efficiency?node-id=22-245&t=5Okgm0bSk13Qf7YH-1" target="_blank" class="cta">View case study →</a>
+          </div>
+          <div class="media">
+            <div class="screenshot">
+              <img src="/images/keypoints.jpg" alt="Keypoints case study screenshot" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="fun">
+      <h2 class="section-title">Other fun projects</h2>
+      <div class="fun">
+        <article class="fun-card">
+          <div class="fun-media">
+            <img src="/images/mukiplant-thumb.jpg" alt="MukiPlant thumbnail" />
+          </div>
+          <div class="fun-body">
+            MukiPlant: a no‑code watering and plant care tracker built on Notion.
+            <p><a class="fun-cta" href="/blog/no-code/plant-care-tracker-intro/">Read the article →</a></p>
+          </div>
+        </article>
+        <article class="fun-card">
+          <div class="fun-media">
+            <img src="images/blau-thumb.jpeg" alt="Project thumbnail" />
+          </div>
+          <div class="fun-body">
+            Blau: an art project using the analog cyanotype process.
+            <p><a class="fun-cta" href="https://blau.cianotipia.com/" target="_blank">Check the project →</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot-line">
+      <h2 class="section-title">Say hi!
+        <span class="footer-icons">
+           <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg" alt="Email" height="19"></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+        </span>
+      </h2>
+      <div>© 2025 Paula Guagliardi</div>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
