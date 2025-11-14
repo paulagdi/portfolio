@@ -541,3 +541,38 @@ p.custom-card-text {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
    0 4px 6px -4px rgba(0, 0, 0, 0.1); /* hover:shadow-lg */
 }
+
+article.gallery {
+  background: var(--card);
+    border-radius: var(--radius);
+    padding: 36px clamp(18px, 3vw, 40px);
+  margin-bottom: 32px;
+    border: 1px solid rgba(0, 0, 0, .06);
+    transition: transform .35s 
+  ease, box-shadow .35s 
+  ease, background .35s 
+  ease;
+
+}
+
+.gallery p {
+    margin: 16px 0 22px;
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.gallery li {
+    margin: 8px 0 0px;
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 150%;
+    width: 60%;
+}
+
+p.gallery-copy{
+   margin: 16px 0 22px;
+    color: var(--accent);
+    font-size: 16px;
+    line-height: 150%;
+}
