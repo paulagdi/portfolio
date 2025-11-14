@@ -1,125 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MukiPlant – A No-Code UX Experiment</title>
-  <link rel="stylesheet" href="/css/main.css" />
-     <link rel="stylesheet" href="/css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Post name - Paula Guagliardi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+
 </head>
-<body>
+
+<body class="textured-bg">
   <header>
     <div class="nav">
       <div class="brand"><a href="/">Paula Guagliardi <em>Design + Product</em></a></div>
       <nav class="nav-ctas" aria-label="Primary">
-        <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg" alt="Email" height="19"></a>
-        <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+        <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg"
+            alt="Email" height="19"></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img
+            src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
       </nav>
     </div>
   </header>
 
-  <div class="container project-page">
+  <main>
+    <section class="wrap blog-hero">
+      <span class="chip">no-code</span>
+      <h1>Muki Plant v1.0: the simplest watering tracker for my plants using Notion.</h1>
+      <img src="./mukiplant-intro-header.jpg" alt="Muki Plant UI Notion" width="100%" />
+      <p class="date">Updated August, 2025 by Paula Guagliardi</p>
+    </section>
+    <section class="wrap blog-content">
+      <p>I wanted to start with <strong>the simplest, quickest version</strong> of what I needed to cancel my Plant care app subscription. Something I could build in one afternoon. (It took me a few more hours to add all my plants)
+      </p>
 
-    <h1>🌱<br/>Muki Plant v1.0</h1>
-    
-    <p><strong>Goal:</strong> The simplest no-code watering tracker built in Notion.</p>
-    
-    <p>I wanted to start with <strong>the simplest, quickest version</strong> of what I needed to cancel my Plant Care app subscription. Something I could build in one afternoon. (It took me a few more hours to add all my plants)</p>
-    
-    <p>I chose <strong>Notion (Free Plan)</strong> because it's the tool I'm most familiar with, and for future ideas, the linked databases make more sense than starting from scratch elsewhere.</p>
+      <p>I chose <strong>Notion (Free Plan)</strong> because it's the tool I'm most familiar with, and for future ideas,
+        the linked databases make more sense than starting from scratch elsewhere.</p>
 
-    <h2>Building the Core Database</h2>
-    
-    <p>To start, I focused on <strong>the minimum properties</strong> I would need:</p>
-    
-    <ul>
+      <h2>Building the Core Database</h2>
+
+      <p>To start, I focused on <strong>the minimum properties</strong> I would need:</p>
+
+      <ul>
         <li>Plant's name [text field]</li>
         <li>When to water [date]</li>
         <li>Water frequency - days [number] (fixed for now)</li>
         <li>Watered [checkbox] to mark the task as done and repeat the event</li>
         <li>Picture [media] It would be nice but not mandatory for watering so I didn't include it.</li>
-    </ul>
-    
-    <img src="./mukiplant-v1-1.jpg" alt="Initial plant database structure in Notion" />
-    
-    <p>I originally planned to use "When to water" as a date field with a recurring event, but <strong>Notion has limitations</strong> for setting this up so I made these changes:</p>
-    
-    <ul>
+      </ul>
+
+      <img src="./mukiplant-v1-1.jpg" alt="Initial plant database structure in Notion" />
+
+      <p>I originally planned to use "When to water" as a date field with a recurring event, but <strong>Notion has
+          limitations</strong> for setting this up so I made these changes:</p>
+
+      <ul>
         <li><strong>When to water → Last Watered</strong></li>
         <li><strong>New property Next Watering [formula]</strong> dateAdd(Last Watered, Water frequency (days), "days")
-            <br>This adds [Water frequency - days] to the Last Watered date. This way when the last Watered date is changed I'll get a new Next Watering date.</li>
-        <li><strong>New property Needs Watering [formula]</strong> dateBetween(now(), Last Watered, "days") >= Water frecuency (days)
-            <br>This is not mandatory for generating the Next Watering date but serves as a visual cue (checkbox by default) whether that plant needs to be watered. It will show `true` (checkbox checked) if the difference between Today and Last Watered is equal to or greater than the Water Frequency.</li>
-    </ul>
-    
-    <img src="./mukiplant-v1-2.jpg" alt="Plant database with formulas for automatic watering tracking" />
-    
-    <p>With these changes the tracker was working but to make it simpler I added a new property called <strong>Watered [button]</strong>. This runs an automation that updates "Last Watered" to today's date. No manual date entry.</p>
-    
-    <img src="./mukiplant-v1-3.jpg" alt="Watered button automation in Notion" />
+          <br>This adds [Water frequency - days] to the Last Watered date. This way when the last Watered date is
+          changed I'll get a new Next Watering date.
+        </li>
+        <li><strong>New property Needs Watering [formula]</strong> dateBetween(now(), Last Watered, "days") >= Water
+          frecuency (days)
+          <br>This is not mandatory for generating the Next Watering date but serves as a visual cue (checkbox by
+          default) whether that plant needs to be watered. It will show `true` (checkbox checked) if the difference
+          between Today and Last Watered is equal to or greater than the Water Frequency.
+        </li>
+      </ul>
 
-    <h2>A few small additions</h2>
-    
-    <p><strong>Room tracking:</strong></p>
-    
-    <p>As I added my plants, I realized I needed a <strong>"Room" property.</strong> I have lots of the same plants in different rooms (cuttings from the same parent), so this helps me identify which specific plant needs water.</p>
-    
-    <p>I used a select property with all the rooms in my house.</p>
-    
-    <p>I could have also added pictures or put the room in the plant name, but this was faster and gives me <strong>future flexibility</strong> for room-based filters and characteristics.</p>
-    
-    <img src="./mukiplant-v1-4.jpg" alt="Room property for plant organization" />
-    
-    <p><strong>Focused view:</strong></p>
-    
-    <p>Using the Needs Watering property, I created a <strong>filtered view showing only plants that need watering.</strong> In this view I also hide some properties that were not relevant for me when watering my plants, they were still displaying in the full view.</p>
-    
-    <p>When I water a plant, it disappears from the list. (I might update this to keep it visible briefly in case I accidentally click it.)</p>
-    
-    <img src="./mukiplant-v1-5.jpg" alt="Filtered view showing only plants that need watering" />
-    
-    <p><strong>Shortcut for mobile:</strong></p>
-    
-    <p>I used Shortcuts to create <strong>direct access to the Needs Watering view</strong> in the database. I customized the Icon and Add it to the Home Screen.</p>
-    
-    <img src="./mukiplant-v1-6.jpg" alt="Mobile shortcut for quick access to plant watering tracker" />
-    
-    <p>It was very hard <strong>not to start adding features</strong> that would be "nice to have."</p>
-    <p>But for V1, this is it.</p>
+      <img src="./mukiplant-v1-2.jpg" alt="Plant database with formulas for automatic watering tracking" />
 
-    <h2>What's Next</h2>
-    
-    <ul>
+      <p>With these changes the tracker was working but to make it simpler I added a new property called <strong>Watered
+          [button]</strong>. This runs an automation that updates "Last Watered" to today's date. No manual date entry.
+      </p>
+
+      <img src="./mukiplant-v1-3.jpg" alt="Watered button automation in Notion" />
+
+      <h2>A few small additions</h2>
+
+      <p><strong>Room tracking:</strong></p>
+
+      <p>As I added my plants, I realized I needed a <strong>"Room" property.</strong> I have lots of the same plants in
+        different rooms (cuttings from the same parent), so this helps me identify which specific plant needs water.</p>
+
+      <p>I used a select property with all the rooms in my house.</p>
+
+      <p>I could have also added pictures or put the room in the plant name, but this was faster and gives me
+        <strong>future flexibility</strong> for room-based filters and characteristics.</p>
+
+      <img src="./mukiplant-v1-4.jpg" alt="Room property for plant organization" />
+
+      <p><strong>Focused view:</strong></p>
+
+      <p>Using the Needs Watering property, I created a <strong>filtered view showing only plants that need
+          watering.</strong> In this view I also hide some properties that were not relevant for me when watering my
+        plants, they were still displaying in the full view.</p>
+
+      <p>When I water a plant, it disappears from the list. (I might update this to keep it visible briefly in case I
+        accidentally click it.)</p>
+
+      <img src="./mukiplant-v1-5.jpg" alt="Filtered view showing only plants that need watering" />
+
+      <p><strong>Shortcut for mobile:</strong></p>
+
+      <p>I used Shortcuts to create <strong>direct access to the Needs Watering view</strong> in the database. I
+        customized the Icon and Add it to the Home Screen.</p>
+
+      <img src="./mukiplant-v1-6.jpg" alt="Mobile shortcut for quick access to plant watering tracker" />
+
+      <p>It was very hard <strong>not to start adding features</strong> that would be "nice to have."</p>
+      <p>But for V1, this is it.</p>
+
+      <h2>What's Next</h2>
+
+      <ul>
         <li>Gallery view for mobile (horizontal scrolling for the button is annoying)</li>
         <li>Plant pictures (because yes, finally)</li>
         <li>Scientific name and common name fields for easy search.</li>
         <li>Water type, how I water each plant based on their requirements.</li>
         <li>Change the watering checkbox for a different message.</li>
-    </ul>
-    
-    <p><strong>Future ideas (lower priority):</strong>
-        <ul>
-            <li>Watering history tracking (not saving history yet, but thinking about it)</li>
-            <li>Additional events: fertilizing, repotting, care guides</li>
-            <li>Plant care guide collection.</li>
-            <li>Formula to generate water requirements based on multiple factors.</li>
-        </ul>
-    </p>
-   
-    <p><a href="https://paulagdi.notion.site/MukiPlant-v1-0-23971609beda803e83f3efb7dca31711" target="_blank" rel="noopener">Clone the project in Notion</a> →</p>
-  
-  
-    <!-- ✅ Nav links in footer -->
-    <div class="nav-footer">
-      <div>
-        <span>← </span><a href="/"> Go back</a>
-      </div>
-      <!-- <div> 
-        <a class="linkFooter" href="mailto:paula.gdi@gmail.com">Contact</a> 
-        <a class="linkFooter">•</a>  
-        <a class="linkFooter" href="https://www.linkedin.com/in/paulaguagliardi/" target="_blank" rel="noopener">LinkedIn</a></div>-->
-    </div> 
+      </ul>
 
+      <p><strong>Future ideas (lower priority):</strong>
+      <ul>
+        <li>Watering history tracking (not saving history yet, but thinking about it)</li>
+        <li>Additional events: fertilizing, repotting, care guides</li>
+        <li>Plant care guide collection.</li>
+        <li>Formula to generate water requirements based on multiple factors.</li>
+      </ul>
+      </p>
+
+
+      <div class="custom-card">
+        <p><a href="/blog/no-code/plant-care-tracker-intro/">Read this if you wanna know the why of the project.</a>
+          →</p>
+         <p><a href="https://paulagdi.notion.site/Muki-Plant-Release-notes-22971609beda806a8c7cdd3c28ce4aaa"
+          target="_blank" rel="noopener">Check v1.0 in Notion </a>→ You can duplicate it and use it as your starting
+        point.</p>
+      </div>
+
+
+      <!-- <div class="custom-card">
+  <h4 class="custom-card-title">
+    Want to build your own plant tracker?
+  </h4>
+  <p class="custom-card-text">
+    I'm happy to share insights and tips on building with Notion. This project shows how no-code tools 
+    can solve real problems while teaching valuable lessons about database design and automation.
+  </p>
+  <a href="#contact" class="custom-card-button">
+    Get in touch →
+  </a>
+</div> -->
+
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot-line">
+      <h2 class="section-title">Say hi!
+        <span class="footer-icons">
+          <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg"
+              alt="Email" height="19"></a>
+          <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img
+              src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+        </span>
+      </h2>
+      <div>© 2025 Paula Guagliardi</div>
+    </div>
+  </footer>
 </body>
+
 </html>
