@@ -831,7 +831,7 @@
    font-family: 'Courier New', monospace;
    font-size: 14px;
    overflow-x: auto;
-   margin-top: 12px;
+   margin: 12px 0 24px 0;
  }
 
  @media (max-width: 600px) {
