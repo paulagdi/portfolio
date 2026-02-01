@@ -987,3 +987,7 @@
     font-style: italic;
     text-align: left;
 }
+
+li.no-bullet {
+  list-style: none;
+}

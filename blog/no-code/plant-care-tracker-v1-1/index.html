@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muki Plant v1.1: making watering more visual and intuitive - Paula Guagliardi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+</head>
+
+<body class="textured-bg">
+  <header>
+    <div class="nav">
+      <div class="brand"><a href="/">Paula Guagliardi <em>Design + Product</em></a></div>
+      <nav class="nav-ctas" aria-label="Primary">
+        <a class="icon-link" href="/about.html" aria-label="Email">About</a>
+
+        <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg"
+            alt="Email" height="19"></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img
+            src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap blog-hero">
+      <span class="chip">no-code</span>
+      <h1>Muki Plant v1.1: making watering more visual and intuitive </h1>
+      <img src="./mukiplant-intro-header.jpg" alt="Muki Plant UI Notion" width="100%" />
+      <p class="date">Updated December, 2025 by Paula Guagliardi</p>
+    </section>
+    <section class="wrap blog-content">
+      <p>After canceling my plant care app subscription with v1.0, I've been using the tracker daily. <strong>The core functionality works</strong>, but I wanted to add some improvements to make it easier to use and some details to make me smile. </p>
+      <p>  
+        Version 1.1 focuses on visual improvements and also a lot of nice to have that I left out in the first version like adding plants common name, adding pictures, adding watering type info and adding a different message when I need to water.</p>
+      
+
+      <div class="building-section">
+        <h2>Finding plants</h2>
+
+        <p class="building-intro"></p>
+
+        <div class="build-step">
+          <h3>Plant pictures</h3>
+          <p>The biggest and most enjoyable difference was adding images. Scrolling through plant names works, but seeing thumbnails I can identify plant way easier plus i like seeing the pics.</p>
+          <ul>
+            <li>I added a new property: <span class="faux-code">pic</span> <span class="faux-code">type:files & media</span>
+            </li>
+            <li class="no-bullet">Using property type instead of adding pictures to the page body made photographing plants much easier. On mobile, it automatically prompts the camera to take and upload images. (Bonus point for Notion: I could continue the process while the image was still uploading).</li>
+            <li>Then I created a new <span class="faux-code">view: Gallery</span> and set the new property to display in the thumbnails. I did the same for <span class="faux-code">view: Needs watering</span>. I kept the table view to visualize the full info of the plants. Easier to reference or edit multiple properties.</li>
+          </ul>
+
+          <img src="./mukiplant-v1_1-1.jpg" alt="Gallery view settings" />
+          <figcaption>Gallery view settings</figcaption>
+        </div>
+
+        <div class="build-step">
+          <h3>Common name and scientific name </h3>
+          <p>Along the lines of helping ID plants I separated the Plant name input in two properties:</p>
+          <ul>
+            <li><span class="faux-code">common_name</span> <span class="faux-code">type:text</span></li>
+            <li><span class="faux-code">scientific_name</span> <span class="faux-code">type:text</span></li>
+          </ul>
+          <p>When I started to take care of my plants one of the first things I did was start looking for info online where I came across their scientific name. Knowing the plant scientific name helped me to understand how to take care of them, similar families, similar care, similar propagation type.</p>
+          <p>Still, I refer to some plants by their common name mostly when the scientifict name is hard to remember/pronounce or when the plant name is too good to let go. Like Lengua de suegra (mother in law tongue)</p>
+        </div>
+
+        <div class="build-step">
+          <h3>Small tweaks</h3>
+          <ul>
+            <li>
+          <p><strong>Emojis instead of color for Rooms:</strong> Instead of having different colors for each room I unified them to grey and added emojis to the Room property values to make them scannable at a glance and adds meaning, which in this case color doesn’t have. </p>
+          <ul>
+            <li>🛋️ Living Room</li>
+            <li>🛏️ Bedroom</li>
+            <li>🍳 Kitchen</li>
+            <li>🚿 Bathroom</li>
+          </ul>
+            </li>
+            <li>
+              <p><strong>I added sorting to the Needs Watering view:</strong></p>
+              <ul>
+                <li>1. Days late (descending) - urgent plants first</li>
+                <li>2. Room (ascending) - grouped by location</li>
+              </ul>
+              <p>Though I'm still testing if days-late based grouping actually helps my routine or if I prefer tackling the plants by location. 
+</p>
+<p>I also added descriptions to formula properties so future-me remembers what each calculation does without needing to decode the formula syntax.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Watering improvements</h2>
+
+      <div class="learnings-section">
+        <div class="learning-card">
+          <h3 class="learning-title">
+            Water Requirements
+          </h3>
+            <p><em>"How often do I have to water it?"</em> is the most common question when getting a new plant. And also some of the most misleading online advice about plant.</p>
+            <p><strong>So, how often should you water?</strong> It depends on many factors: climate and season, where the plant is located, plant size, pot size, root development, and more.</p>
+            <p>What helped me answer this question is to think: How dry should the soil get between waterings? Some plants like to dry out completely before getting more water, while others prefer consistently moist soil. Once I started thinking this way, my plants did much better.</p>
+            <p>I grouped my plants based on soil requeriments and I added a new property to the database to reflect this: <span class="faux-code">Water type</span> <span class="faux-code">type:select</span>.</p>
+            <ul>
+              <li>🟢 Always Moist: Alocasia, some Ferns</li>
+              <li>🟠 Never Fully Dry: Aglaonema, Ficus, Philodendron, Calatheas</li>
+              <li>🔴 Let Fully Dry: Succulents, Hoya, Dracaena</li>
+              <li>🟤 Let Dry + Wait: Most cacti, ZZ Plant</li>
+            </ul>
+            <p>Before watering, I check the soil, reference the plant's requirement, and decide whether and how much to water. </p>
+        
+           <img src="./mukiplant-v1_1-2.jpg" alt="Water type requeriments"  />
+           <figcaption>Water type requeriments</figcaption>
+            
+        </div>
+
+    <div class="learning-card">
+      <h3 class="learning-title">
+        <span class="learning-emoji">💧</span>
+       A more informative status message
+      </h3>
+      <p>The Next Watering checkbox was functional but not informative. I updated the formula to show a contextual messages:
+            </p>
+            <ul><li>"Water today" when it's watering day</li>
+            <li>"X days late" when overdue (helps prioritize!)</li>
+            <li>"Water in X days" for future watering dates</li>
+          </ul>
+          <p>This turned out to be very useful for trip planning. Before traveling, I can check which plants will need water soon and pre-water them if the timing is close enough.</p>
+          <p>This is the updated formula for  <span class="faux-code">Next Watering</span> property:
+            <div class="code-block">let (days, dateBetween(today(),
+
+next_watering, "days"),
+  if (days == 0, "💧 Water Today",
+    if (days > 0, "🥵 " + days + " days late", "⏳ Water in " + (days * -1) + " days"
+    )
+  )
+)</div>
+
+</p>
+            <img src="./mukiplant-v1_1-3.jpg" alt="Contextual needs watering message with more information" />
+            <figcaption>Contextual needs watering message with more information</figcaption>
+
+    </div>
+
+  </div>
+
+      <h2>What's Next</h2>
+
+      <p>The most important addition for v1.2 will be seasonal schedules. My plants need different watering frequencies in winter versus summer, and manually updating each plant's frequency isn't sustainable.</p>
+      <p>Other ideas on the list:</p>
+
+      <ul class="next-list">
+        <li>Watering history</li>
+        <li>Fertilizing tracking</li>
+        <li>Repotting reminders</li>
+      </ul>
+
+      <div class="custom-card">
+
+        <p><a href="https://paulagdi.notion.site/Muki-Plant-Release-notes-22971609beda806a8c7cdd3c28ce4aaa"
+            target="_blank" rel="noopener">Check v1.1 in Notion </a>→ You can duplicate it and use it as your starting
+          point.</p>
+      </div>
+    </section>
+
+    <section class="more-projects wrap ">
+      <h2 class="section-title">Continue reading</h2>
+
+      <div class="projects-grid">
+
+        <a class="project-card" href="/blog/no-code/plant-care-tracker-v1-0/">
+          <h3>← Muki Plant v1.0</h3>
+          <p>Making watering more visual and intuitive </p>
+        </a>
+
+        <a class="project-card" href="/blog/no-code/plant-care-tracker-v1-2/">
+          <h3>Muki Plant v1.2 →</h3>
+          <p>Adding a winter schedule for better watering</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot-line">
+      <h2 class="section-title">Say hi!
+        <span class="footer-icons">
+          <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg"
+              alt="Email" height="19"></a>
+          <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img
+              src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+        </span>
+      </h2>
+      <div>© 2025 Paula Guagliardi</div>
+    </div>
+  </footer>
+</body>
+
+</html>

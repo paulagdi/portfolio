@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muki Plant v1.2: adding a winter schedule for better watering - Paula Guagliardi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+
+<body class="textured-bg">
+  <header>
+    <div class="nav">
+      <div class="brand"><a href="/">Paula Guagliardi <em>Design + Product</em></a></div>
+      <nav class="nav-ctas" aria-label="Primary">
+        <a class="icon-link" href="/about.html" aria-label="Email">About</a>
+
+        <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg"
+            alt="Email" height="19"></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img
+            src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap blog-hero">
+      <span class="chip">no-code</span>
+      <h1>Muki Plant v1.2: adding a winter schedule for better watering</h1>
+      <img src="./mukiplant-v1_2-header.jpg" alt="Muki Plant UI Notion" width="100%" />
+      <p class="date">Updated January, 2026 by Paula Guagliardi</p>
+    </section>
+    <section class="wrap blog-content">
+      <p>Winter is here. And before that, Fall came and went while I kept postponing updating my watering schedule for
+        shorter and colder days. The tracker was showing "5 days overdue" for multiple plants, and I had to mentally
+        calculate whether that delay was actually okay for winter conditions.</p>
+      <p>For version 1.2 I added seasonal schedule. An options to select between four schedules: Winter, Spring, Summer
+        and Fall and manually select which one I want to use for the plants.</p>
+
+
+      <div class="building-section">
+        <h2>Building the seasonal system</h2>
+
+        <p class="building-intro"></p>
+
+        <div class="build-step">
+          <h3>Four schedules instead of two</h3>
+          <p>Besides the clear differences between Summer and Winter, I also wanted to create a different schedule for
+            Fall and Winter. Fall brings cold days and shorter sunlight, but without the heater running all day, plants
+            retain moisture much longer. I tend to overwater during this transition.</p>
+          <p>Winter with the heater is different. Some plants near radiators dry out almost as fast as summer. Others
+            stay consistently cool and need much less water.</p>
+          <p>And so I decided each season needs its own schedule, I will change if during spring and summer there is
+            also a big difference. </p>
+        </div>
+
+        <div class="build-step">
+          <h3>Adding the new properties to the database</h3>
+          <p>To add this I would need four values for each schedule and the logic to decide when to use each one. The
+            simplest approach would be to convert [Water Frequency] into a type select with four different numbers,
+            automatically switching based on the calendar date. But accessing that data for the formula would require a
+            conversion I wasn't sure Notion even supported.</p>
+          <p>More importantly, it would break the self-documenting nature of the database. I want to see all the
+            schedules at once and understand what each plant needs throughout the year.</p>
+          <p>So I went with the most transparent version. Four new properties, one for each season:</p>
+          <ul>
+            <li><span class="faux-code">winter_watering</span> <span class="faux-code">type:number</span></li>
+            <li><span class="faux-code">spring_watering</span> <span class="faux-code">type:number</span></li>
+            <li><span class="faux-code">summer_watering</span> <span class="faux-code">type:number</span></li>
+            <li><span class="faux-code">fall_watering</span> <span class="faux-code">type:number</span></li>
+          </ul>
+          <p>I put the season name first so I can make the columns narrower and still see which schedule I'm looking
+            at.</p>
+          <img src="./mukiplant-v1_2-1.jpg" alt="New properties for watering schedule" />
+          <figcaption>New properties for watering schedule</figcaption>
+
+        </div>
+        <div class="build-step">
+          <h3>Season selection </h3>
+          <p>Next I needed to add these variables to the watering calculation . To select which schedules to use. But
+            instead of changing to watering formula I kept my [water frequency] property and changes that property to a
+            formula type to do the season calculation and have this watering frequency component isolated here. </p>
+                     <img src="./mukiplant-v1_2-3.jpg" alt="Selecting which schedule to use" />
+          <figcaption>Selecting which schedule to use</figcaption>
+<br>
+          <p>The same reason I needed to make a difference between Fall and Winter I also didn’t want to use an
+            automatic date calculation to change schedules. Winter season for me starts when I turn the heater on all
+            day. Also some year the warm days arrive earlier/later so I wanted to manually select what schedule the app
+            is using. </p>
+          <ul>
+            <li>I added a Watering Schedule property (type: select) with four options: Winter, Spring, Summer, Fall.
+            </li>
+            <li>For the last step I changed Water Frequency from a number to a formula that displays the value from
+              whichever season is selected:</li>
+            <div class="code-block">if(watering_schedule == "Winter",winter_watering,if(watering_schedule == "Spring",
+              spring_watering,if(watering_schedule == "Summer",summer_watering,if(watering_schedule == "Fall"
+              ,fall_watering,"Error" ))))</div>
+          </ul>
+ 
+
+          <p>The "Error" at the end helps me catch any property naming mistakes. It should never appear. </p>
+          <p>I completed a Winter schedule based on my observation from the last weeks/months * cough cough* The spring
+            and fall will be completed when the time comes. </p>
+        </div>
+        <img src="./mukiplant-v1_2-2.jpg" alt="First version of the winter calculation schedule" />
+          <figcaption>First version of the winter calculation schedule</figcaption>
+          <p>I wish I could say that the difference for each plant was double, but it’s not the case because it depends
+            on if the plant is close to a heater, then in some cases, the schedlue is even the same as in summer. Also
+            the size of the pot, etc. 
+             </p>  
+  <p>
+            I know it can be work to calculate this, but also this is the while point, to not automate this number. You
+            can take a guide but don;t take it for granted.</p>
+           
+        </div>
+      </div>
+
+      <h2>Small tweaks </h2>
+      <p>As usual I added some small tweaks. </p>
+      <ul>
+        <li>From the last version, I changed the sorting back to just room order. The previous sorting (looking at plant
+          by urgency first )was annoying in practice. </li>
+        <li>And i also changed, hopefully for the last time, the case sensitive and format for the database properties.
+          So now I’m using all lower caps and underscore. </li>
+      </ul>
+
+      <h2>What's Next</h2>
+      <ul class="next-list">
+        <li>Fertilizing schedule and tracking. </li>
+        <li>Events history to see patterns over time and have a little journal for each plant .</li>
+        <li>Maybe that global settings database after all. </li>
+      </ul>
+
+      <div class="custom-card">
+
+        <p><a href="https://paulagdi.notion.site/Muki-Plant-Release-notes-22971609beda806a8c7cdd3c28ce4aaa"
+            target="_blank" rel="noopener">Check v1.2 in Notion </a>→ You can duplicate it and use it as your starting
+          point.</p>
+      </div>
+    </section>
+
+    <section class="more-projects wrap ">
+      <h2 class="section-title">Continue reading</h2>
+
+      <div class="projects-grid">
+
+        <a class="project-card" href="/blog/no-code/plant-care-tracker-v1-1/">
+          <h3>← Muki Plant v1.1</h3>
+          <p>Making watering more visual and intuitive </p>
+        </a>
+
+        <a class="project-card" href="#">
+          <h3>Muki Plant v1.3 →</h3>
+          <p>coming soon</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot-line">
+      <h2 class="section-title">Say hi!
+        <span class="footer-icons">
+          <a class="icon-link" href="mailto:paula.gdi@gmail.com" aria-label="Email"><img src="/images/contact-icon.svg"
+              alt="Email" height="19"></a>
+          <a class="icon-link" href="https://www.linkedin.com/in/paulaguagliardi/" aria-label="LinkedIn"><img
+              src="/images/linkedin-icon.svg" alt="LinkedIn" width="19" height="19"></a>
+        </span>
+      </h2>
+      <div>© 2025 Paula Guagliardi</div>
+    </div>
+  </footer>
+</body>
+
+</html>
