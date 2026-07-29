@@ -40,8 +40,14 @@
 				<ul class="nav" id="dropmenu">
 					<li><a href="../../../individuals.html" title="Individuals">Individuals</a></li>
 					<li><a href="../../../index.html" title="Surnames">Surnames</a></li>
+					<li><a href="../../../families.html" title="Families">Families</a></li>
+					<li><a href="../../../events.html" title="Events">Events</a></li>
+					<li><a href="../../../places.html" title="Places">Places</a></li>
 					<li><a href="../../../heatmaps.html" title="Heatmaps">Heatmaps</a></li>
+					<li><a href="../../../sources.html" title="Sources">Sources</a></li>
+					<li><a href="../../../repositories.html" title="Repositories">Repositories</a></li>
 					<li><a href="../../../updates.html" title="Updates">Updates</a></li>
+					<li><a href="../../../statistics.html" title="Statistics">Statistics</a></li>
 				</ul>
 			</div>
 		</div>
@@ -93,7 +99,7 @@ function GoToTop() {
   window.addEventListener("load", function() {
     var map;
     var heat = 'heatmap';
-    var tracelife = [[-58.607885, -34.450468, ' <a href="../../../plc/b/6/10365c0f471f337c5e7810b7876b.html">San Fernando, Buenos Aires, Argentina</a>', "<p><a href='../../../ppl/9/b/10365f8702ba65e115345de4b8b9.html' title='I0006' target='_self'>Lavezzari, Enzio Atilio</a>: Birth (7 Dec 1922)" + "<br><a href='../../../ppl/e/a/1036604597762bde2b0769430bae.html' title='I0008' target='_self'>Guagliardi, Juan Jose</a>: Birth (6 Aug 1908)" + "<br><a href='../../../ppl/e/a/1036604597762bde2b0769430bae.html' title='I0008' target='_self'>Guagliardi, Juan Jose</a>: Death (13 Jan 1995)" + "<br><a href='../../../ppl/e/3/1036605c52011518dce17bc5403e.html' title='I0009' target='_self'>Gannio, Margarita Juana</a>: Death (19 Jul 1979)" + "<br><a href='../../../ppl/a/d/10365f93097e642d57608a52f7da.html' title='I0007' target='_self'>Turri Zanoni, Esther</a>: Death (12 Jun 1999)" + "<br><a href='../../../ppl/a/3/103663a9315059bc9b6bffd5813a.html' title='I0014' target='_self'>Guagliardi, Ana Elena</a>: Birth (25 Jun 1939)" + "<br><a href='../../../ppl/9/4/10369550463c18eadc3e76767649.html' title='I0018' target='_self'>Guagliardi, Jose</a>: Death (10 Aug 1969)" + "<br><a href='../../../ppl/6/c/10390ae3ecdb7a650ffd3a74f9c6.html' title='I0062' target='_self'>Boschini, Antonia Ana</a>: Marriage (1921)" + "<br><a href='../../../ppl/8/3/10390ae24d2f29730f6df0b80838.html' title='I0061' target='_self'>Lavezzari, Juan Pedro</a>: Marriage (1921)" + "<br><a href='../../../ppl/8/3/10390ae24d2f29730f6df0b80838.html' title='I0061' target='_self'>Lavezzari, Juan Pedro</a>: Death (24 Nov 1927)" + "<br><a href='../../../ppl/6/c/10390ae3ecdb7a650ffd3a74f9c6.html' title='I0062' target='_self'>Boschini, Antonia Ana</a>: Death (28 Aug 1982)" + "<br><a href='../../../ppl/a/8/10390b983fcf36873ca30237618a.html' title='I0068' target='_self'>Carli, Anita Elilia Giovaninna</a>: Death (5 May 1990)"],];
+    var tracelife = [[-58.607885, -34.450468, ' <a href="../../../plc/b/6/10365c0f471f337c5e7810b7876b.html">San Fernando, Buenos Aires, Argentina</a>', "<p><a href='../../../ppl/9/b/10365f8702ba65e115345de4b8b9.html' title='I0006' target='_self'>Lavezzari, Enzio Atilio</a>: <a href='../../../evt/7/d/10365f8fdd635aff8e72949df4d7.html' title='7 Dec 1922' target='_self'>Birth</a> (7 Dec 1922)" + "<br><a href='../../../ppl/e/a/1036604597762bde2b0769430bae.html' title='I0008' target='_self'>Guagliardi, Juan Jose</a>: <a href='../../../evt/7/d/1036605231cb17547bd545a68cd7.html' title='6 Aug 1908' target='_self'>Birth</a> (6 Aug 1908)" + "<br><a href='../../../ppl/e/a/1036604597762bde2b0769430bae.html' title='I0008' target='_self'>Guagliardi, Juan Jose</a>: <a href='../../../evt/0/a/103664797a646246e00cec9a42a0.html' title='13 Jan 1995' target='_self'>Death</a> (13 Jan 1995)" + "<br><a href='../../../ppl/e/3/1036605c52011518dce17bc5403e.html' title='I0009' target='_self'>Gannio, Margarita Juana</a>: <a href='../../../evt/3/b/1036647fc5b05c8897c0aedf28b3.html' title='19 Jul 1979' target='_self'>Death</a> (19 Jul 1979)" + "<br><a href='../../../ppl/a/d/10365f93097e642d57608a52f7da.html' title='I0007' target='_self'>Turri Zanoni, Esther</a>: <a href='../../../evt/d/e/10366493c2336fa86144173c16ed.html' title='12 Jun 1999' target='_self'>Death</a> (12 Jun 1999)" + "<br><a href='../../../ppl/a/3/103663a9315059bc9b6bffd5813a.html' title='I0014' target='_self'>Guagliardi, Ana Elena</a>: <a href='../../../evt/1/9/103697d198d3486362c5bdb7c591.html' title='25 Jun 1939' target='_self'>Birth</a> (25 Jun 1939)" + "<br><a href='../../../ppl/9/4/10369550463c18eadc3e76767649.html' title='I0018' target='_self'>Guagliardi, Jose</a>: <a href='../../../evt/5/7/1036d3c173b75e57b38f30c6ea75.html' title='10 Aug 1969' target='_self'>Death</a> (10 Aug 1969)" + "<br><a href='../../../ppl/8/3/10390ae24d2f29730f6df0b80838.html' title='I0061' target='_self'>Lavezzari, Juan Pedro</a>: <a href='../../../evt/a/b/10390affd84f4f2a9c696db8f4ba.html' title='1921' target='_self'>Marriage</a> (1921)" + "<br><a href='../../../ppl/6/c/10390ae3ecdb7a650ffd3a74f9c6.html' title='I0062' target='_self'>Boschini, Antonia Ana</a>: <a href='../../../evt/a/b/10390affd84f4f2a9c696db8f4ba.html' title='1921' target='_self'>Marriage</a> (1921)" + "<br><a href='../../../ppl/8/3/10390ae24d2f29730f6df0b80838.html' title='I0061' target='_self'>Lavezzari, Juan Pedro</a>: <a href='../../../evt/5/a/10390b2ed9ef50ed210649eb0da5.html' title='24 Nov 1927' target='_self'>Death</a> (24 Nov 1927)" + "<br><a href='../../../ppl/6/c/10390ae3ecdb7a650ffd3a74f9c6.html' title='I0062' target='_self'>Boschini, Antonia Ana</a>: <a href='../../../evt/1/1/10390b3e3cb97ab2af2d5ef1c11.html' title='28 Aug 1982' target='_self'>Death</a> (28 Aug 1982)" + "<br><a href='../../../ppl/a/8/10390b983fcf36873ca30237618a.html' title='I0068' target='_self'>Carli, Anita Elilia Giovaninna</a>: <a href='../../../evt/b/e/10390bc903122e69b775fc530beb.html' title='5 May 1990' target='_self'>Death</a> (5 May 1990)"],];
     var iconStyle = new ol.style.Style({
       image: new ol.style.Icon(({
         anchor: [0.2, 48],
@@ -231,7 +237,7 @@ function GoToTop() {
 		<div class="fullclear"></div>
 		<div id="footer">
 			<p id="createdate">
-			Generated by <a href="http://gramps-project.org/">Gramps</a> 6.0.8 on 25 Jul 2026
+			Generated by <a href="http://gramps-project.org/">Gramps</a> 6.0.8 on 29 Jul 2026
 			</p>
 			<p id="copyright">
 			
